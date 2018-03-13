@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: False
   vars:
-    key_name: my_keypair
+    key_name: smeuser.pem
     instance_type: m1.micro
     security_group: my_securitygroup
     image: ami-337be65c
