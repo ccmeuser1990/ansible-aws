@@ -1,6 +1,7 @@
 - name: Create a sandbox instance
   hosts: localhost
   gather_facts: False
+  remote_port: 17022
   vars:
     key_name: smeuser
     instance_type: t2.micro
