@@ -2,23 +2,25 @@
   hosts: localhost
   gather_facts: False
   vars:
-    key_name: smeuser.pem
-    instance_type: m1.micro
-    security_group: my_securitygroup
+    key_name: smeuser
+    instance_type: t2.micro
+    security_group: default
     image: ami-337be65c
     region: eu-central-1
+
   tasks:
-    - name: Launch instance
-      ec2:
-         key_name: "{{ key_name }}"
-         group: "{{ security_group }}"
-         instance_type: "{{ instance_type }}"
-         image: "{{ image }}"
-         wait: true
-         region: "{{ region }}"
-         vpc_subnet_id: subnet-29e63245
-         assign_public_ip: yes
-      register: ec2
+
+      - name: Launch instance
+        ec2:
+          key_name: "{{ key_name }}"
+          group: "{{ security_group }}"
+          instance_type: "{{ instance_type }}"
+          image: "{{ image }}"
+          wait: true
+          region: "{{ region }}"
+          vpc_subnet_id: subnet-a017cadd
+          assign_public_ip: yes
+        register: ec2
 
 #    - name: Add new instance to host group
 #      add_host:
